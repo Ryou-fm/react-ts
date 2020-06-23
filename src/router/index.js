@@ -10,7 +10,7 @@ class RouterIndex extends Component{
       <HashRouter>
         <Switch>
           <Route path="/404" component={Error} />
-          <Route path="/index" component={Home} />
+          <Route path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/book" component={Book} />
         </Switch>

@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.less'
+import './assets/css/index.less'
 import { HashRouter } from 'react-router-dom'
 import RouterIndex from "./router/index"
 import MainHeader from "./components/min-header"
