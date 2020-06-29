@@ -22,11 +22,7 @@
     "format": "prettier --config .prettierrc.js --write **/*.{css,html,js,jsx,json,ts,tsx}",
     "eject": "react-scripts eject"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint:eslint"
-    }
-  },
+ 
   "eslintConfig": {
     "extends": "react-app"
   },

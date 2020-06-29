@@ -22,3 +22,116 @@
   top:0;
   width: auto;
 }
+.page-header {
+  width: 100%;
+  background-color: #07173b;
+  height: 100px;
+  background-image: url("../assets/img/headbg.png");
+  background-size: 100% 100%;
+  position: relative;
+}
+.page-header img{
+   height: 50px;
+   margin-top: 10px;
+   cursor: pointer;
+}
+.page-header .logo img {
+  position: absolute;
+  top:10px;
+  left:20px;
+  margin-top:0px;
+  height: 80px;
+}
+.page-header .home img {
+  position: absolute;
+  top:7px;
+  right:80px;
+  margin-top:0px;
+  height: 50px
+}
+.page-header .home .title{
+  position: absolute;
+  bottom: -3px;
+  right:75px;
+  margin-top:0px;
+  height: 50px;
+  color:#fff
+}
+ .page-header .home .code {
+  position: absolute;
+  top:2px;
+  right:180px;
+  margin-top:0px;
+  height: 70px;
+  line-height: 70px;
+  color: white;
+  font-size: 20px;
+}
+.main-container {
+  min-width: 1200px;
+}
+.content {
+  width: 1100px;
+  height: 570px;
+  margin: 0 auto;
+  border-radius: 10px;
+  display: flex;
+  background-image: url("../assets/img/box3.png");
+  background-size: 1100px 574px;
+  background-repeat: no-repeat ;
+}
+#app {
+  /* position: fixed; */
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  height: 100%;
+  background-image: url("../assets/img/bg3.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#root{
+  height: 100%;
+}
+.themeName{
+  color:white;
+  width: 200px;
+  /*height:50px;*/
+  position:absolute;
+  left:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transform: translate(-50%,-90%);
+  background-color: #FF6F00;
+  border-radius: 25px;
+  /*width:14rem;*/
+  font-size: 18px;
+  padding: 10px  ;
+}
+.title{
+  float:right;
+}
+.left-bar {
+  max-height: 100%;
+  margin-top: 40px;
+}
+ .left-bar li{
+  display: inline-block;
+  width: 180px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color:#fff;
+   font-weight: 600;
+  border-radius: 0 25px 25px 0;
+  background-repeat: no-repeat;
+  background-size: 200px  100%;
+  margin-top: 20px;
+}
+.left-bar li:hover {
+  /*background-image: url("../img/leftselect.png");*/
+  /*cursor: pointer;*/
+  background: #114177;
+  color: #fff;
+}
