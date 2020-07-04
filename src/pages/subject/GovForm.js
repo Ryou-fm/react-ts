@@ -1,49 +1,51 @@
 import React, { Component } from 'react'
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form,Radio,Checkbox,} from 'antd';
 export default class GovForm extends Component {
-
-  layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
-  }
-  tailLayout = {
-    wrapperCol: { offset: 8, span: 16 },
+  constructor(props){
+    super(props)
+    this.state ={
+      layout : {
+        labelCol: { span: 8 },
+        wrapperCol: { span: 16 },
+      },
+    }
   }
   render() {
     return (
       <div>
          <Form
-         
-          name="basic"
+          {...this.state.layout}
+          name={this.props.name}
           initialValues={{ remember: true }}
-         
         >
           <Form.Item
-            label="Username"
-            name="username"
-            rules={[{ required: true, message: 'Please input your username!' }]}
+            rules={this.props.item.rule}
           >
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            label="Password"
-            name="password"
-            rules={[{ required: true, message: 'Please input your password!' }]}
-          >
-            <Input.Password />
-          </Form.Item>
-
-          <Form.Item  name="remember" valuePropName="checked">
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
-
-          <Form.Item >
-            <Button type="primary" htmlType="submit">
-              Submit
-            </Button>
+            <div slot="label" className="itemName">
+                <span>{this.props.item.name}</span>
+            </div>
+            {this.props.item.choiceType === 1
+              ?
+              <Radio.Group>
+              {this.props.item.choice.map((check,index)=>(
+                  <Radio value={check.name} key={index}>{check.name}</Radio>
+              ))}
+              </Radio.Group>
+              :
+              <Checkbox.Group>
+                {this.props.item.choice.map((check,index)=>(
+                  <Checkbox value={check.name} style={{ lineHeight: '32px' }}  key={index}>
+                      {check.name}
+                  </Checkbox>
+                ))}
+                </Checkbox.Group>
+            }
+         
           </Form.Item>
         </Form>
+        {this.props.item.children.map((item,index)=>(
+              <GovForm item={item} key={index}></GovForm>
+           ))}
       </div>
     )
   }

@@ -44,9 +44,7 @@ export default class Subject extends Component {
       })
       this.setState({
         subFormList:formList
-      })
-      console.log(this.state.subFormList)
-      
+      }) 
   }
    // 递归放置判断
    addRule(list){
@@ -82,7 +80,9 @@ export default class Subject extends Component {
             {this.state.CurrentTheme}
           </div>
         </div>
-        <GovFormItem ></GovFormItem>
+        {this.state.subFormList.map((item,index) =>(
+            <GovFormItem item={item} key={index}></GovFormItem>
+        ))}
         <div className="scorll_content">
         <div className="clearfix" style={{marginTop: '40px'}}>
               <div className="fl leftbtn next-btn" style={{marginLeft: '30%',backgroundColor: '#FF6F00'}} >
