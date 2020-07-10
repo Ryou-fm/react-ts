@@ -7,6 +7,7 @@ import './subject.less'
 export default class Subject extends Component {
   constructor(props){
     super(props)
+    this.handleChangeData = this.handleChangeData.bind(this)
     this.state ={
       CurrentTheme:'',
       CurrentThemeId:'',
@@ -72,6 +73,20 @@ export default class Subject extends Component {
      }
    })
   }
+  //改变输入框的值 
+  handleChangeData (item,res){
+    res.data = item
+    this.setState({
+      subFormList:this.state.subFormList
+    })
+  }
+  // 返回上一步
+  goBack (){
+    this.props.history.push('/')
+  }
+  goNext (){
+    this.props.history.push('/fillform')
+  }
   render() {
     return (
       <div className="three-content subject">
@@ -81,14 +96,14 @@ export default class Subject extends Component {
           </div>
         </div>
         {this.state.subFormList.map((item,index) =>(
-            <GovFormItem item={item} key={index}></GovFormItem>
+            <GovFormItem item={item} key={index} changeData={this.handleChangeData}></GovFormItem>
         ))}
         <div className="scorll_content">
         <div className="clearfix" style={{marginTop: '40px'}}>
-              <div className="fl leftbtn next-btn" style={{marginLeft: '30%',backgroundColor: '#FF6F00'}} >
+              <div className="fl leftbtn next-btn" style={{marginLeft: '30%',backgroundColor: '#FF6F00'}} onClick={this.goBack.bind(this)}>
                 <p>上一步</p>
               </div>
-              <div className="fr rightbtn next-btn" style={{marginRight: '30%',backgroundColor: '#FF6F00'}}  >
+              <div className="fr rightbtn next-btn" style={{marginRight: '30%',backgroundColor: '#FF6F00'}}  onClick={this.goNext.bind(this)}>
                 <p>下一步</p>
               </div>
             </div>

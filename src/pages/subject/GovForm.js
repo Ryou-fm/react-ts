@@ -5,10 +5,19 @@ export default class GovForm extends Component {
     super(props)
     this.state ={
       layout : {
-        labelCol: { span: 8 },
-        wrapperCol: { span: 16 },
+        labelCol: { span: 16,offset:4 },
       },
+     
     }
+  }
+  changeRadio (e){
+    console.log(this.props)
+    
+    this.props.changeData(e.target.value,this.props.item)
+   
+  }
+  changeCheckBox (checkedList){  
+    this.props.item.dataArray = checkedList
   }
   render() {
     return (
@@ -26,13 +35,13 @@ export default class GovForm extends Component {
             </div>
             {this.props.item.choiceType === 1
               ?
-              <Radio.Group>
+              <Radio.Group onChange={this.changeRadio.bind(this)} value={this.props.item.data}>
               {this.props.item.choice.map((check,index)=>(
                   <Radio value={check.name} key={index}>{check.name}</Radio>
               ))}
               </Radio.Group>
               :
-              <Checkbox.Group>
+              <Checkbox.Group onChange={this.changeCheckBox.bind(this)} value={this.props.item.dataArray}>
                 {this.props.item.choice.map((check,index)=>(
                   <Checkbox value={check.name} style={{ lineHeight: '32px' }}  key={index}>
                       {check.name}
