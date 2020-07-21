@@ -22,7 +22,7 @@
     "format": "prettier --config .prettierrc.js --write **/*.{css,html,js,jsx,json,ts,tsx}",
     "eject": "react-scripts eject"
   },
- 
+  
   "eslintConfig": {
     "extends": "react-app"
   },

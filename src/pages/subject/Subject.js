@@ -74,8 +74,8 @@ export default class Subject extends Component {
    })
   }
   //改变输入框的值 
-  handleChangeData (item,res){
-    res.data = item
+  handleChangeData (item,name,res){
+    res[name] = item
     this.setState({
       subFormList:this.state.subFormList
     })
@@ -95,10 +95,10 @@ export default class Subject extends Component {
             {this.state.CurrentTheme}
           </div>
         </div>
-        {this.state.subFormList.map((item,index) =>(
-            <GovFormItem item={item} key={index} changeData={this.handleChangeData}></GovFormItem>
-        ))}
         <div className="scorll_content">
+          {this.state.subFormList.map((item,index) =>(
+              <GovFormItem item={item} key={index} changeData={this.handleChangeData}></GovFormItem>
+          ))}
         <div className="clearfix" style={{marginTop: '40px'}}>
               <div className="fl leftbtn next-btn" style={{marginLeft: '30%',backgroundColor: '#FF6F00'}} onClick={this.goBack.bind(this)}>
                 <p>上一步</p>
