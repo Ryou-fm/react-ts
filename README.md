@@ -10,7 +10,7 @@
 - prettier
 - husky
 - react-router-dom
-
+ - redux
 ## TODO
 
 - [ ] seperate routes
